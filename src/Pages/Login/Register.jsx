@@ -12,6 +12,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const Register = () => {
     const { createdByEmailPass, updateUserInfo } = useContext(Authcontext);
     const [passwordType, setPasswordType] = useState('password');
+    const [emailError, setEmailError] = useState('');
+    const [passError, setPassError] = useState('');
 
 
     // Toast
@@ -49,8 +51,10 @@ const Register = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                setPassError('');
                 notify();
                 form.reset();
+                location.reload();
                 // update profile
                 updateUserInfo(name, photo)
                     .then()
@@ -59,7 +63,23 @@ const Register = () => {
                     })
             })
             .catch(error => {
-                console.log(error)
+                console.log(error);
+                if (error.message === 'Firebase: Error (auth/invalid-email).') {
+                    setPassError('');
+                    setEmailError('Please provide valid email format')
+                }
+                else if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
+                    setPassError('');
+                    setEmailError('Already account created for this email')
+                }
+                else if (error.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
+                    setEmailError('');
+                    setPassError('Password should be at least 6 characters')
+                }
+                else {
+                    setPassError('');
+                }
+
             })
 
         // console.log(name, email, password, photo)
@@ -90,12 +110,18 @@ const Register = () => {
                                 <span className="label-text">Email</span>
                             </label>
                             <input type="text" name='email' placeholder="Email" required className="input input-bordered" />
+                            <p className='text-red-500 text-sm'>
+                                <small>{emailError}</small>
+                            </p>
                         </div>
                         <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
                             <input type={passwordType} name='password' placeholder="Password" required className="input input-bordered pr-10" />
+                            <p className='text-red-500 text-sm'>
+                                <small>{passError}</small>
+                            </p>
                             <div className="absolute right-1 top-11 p-2 rounded-md" onClick={handlePassType}>
                                 {
                                     passwordType === 'password' ?

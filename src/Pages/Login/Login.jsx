@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import img from '../../assets/loginReg.jpg'
 import { Authcontext } from '../../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
@@ -9,6 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
     const { signInByEmailPass } = useContext(Authcontext);
     const [passwordType, setPasswordType] = useState('password');
+    const [emailError, setEmailError] = useState('');
+    const [passError, setPassError] = useState('');
+    const navigate = useNavigate();
 
 
     // Toast
@@ -48,10 +51,27 @@ const Login = () => {
                 // console.log(loggedUser);
                 notify();
                 form.reset();
+                navigate('/');
                 location.reload();
+
             })
             .catch(error => {
-                console.log(error.message)
+                console.log(error.message);
+                if (error.message === 'Firebase: Error (auth/invalid-email).') {
+                    setPassError('');
+                    setEmailError('Please provide valid email format')
+                }
+                else if (error.message === 'Firebase: Error (auth/user-not-found).') {
+                    setPassError('');
+                    setEmailError('User not found for this email')
+                }
+                else if (error.message === 'Firebase: Error (auth/wrong-password).') {
+                    setEmailError('');
+                    setPassError('Wrong password')
+                }
+                else {
+                    setPassError('');
+                }
 
             })
         // console.log(email, password)
@@ -75,12 +95,18 @@ const Login = () => {
                                 <span className="label-text">Email</span>
                             </label>
                             <input type="text" name='email' placeholder="email" required className="input input-bordered" />
+                            <p className='text-red-500 text-sm'>
+                                <small>{emailError}</small>
+                            </p>
                         </div>
                         <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
                             <input type={passwordType} name='password' placeholder="password" required className="input input-bordered pr-10" />
+                            <p className='text-red-500 text-sm'>
+                                <small>{passError}</small>
+                            </p>
                             <div className="absolute right-1 top-11 p-2 rounded-md" onClick={handlePassType}>
                                 {
                                     passwordType === 'password' ?
