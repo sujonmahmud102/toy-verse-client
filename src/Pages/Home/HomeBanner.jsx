@@ -34,6 +34,7 @@ const HomeBanner = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
+        {/* slider 1 */}
         <SwiperSlide>
           <div className='relative'>
             <img className='w-screen h-screen' src={banner1} alt="" />
@@ -44,6 +45,7 @@ const HomeBanner = () => {
             </div>
           </div>
         </SwiperSlide>
+        {/* slider 2 */}
         <SwiperSlide>
           <div className='relative'>
             <img className='w-screen h-screen' src={banner2} alt="" />

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/logo.png'
 import { Link, NavLink } from 'react-router-dom';
+import { Authcontext } from '../../AuthProvider/AuthProvider';
 
 const Navbar = () => {
+    const { user } = useContext(Authcontext);
+    console.log(user)
+
     const navItems = <>
         <li>
             <NavLink
@@ -18,8 +22,13 @@ const Navbar = () => {
                 Blog
             </NavLink>
         </li>
-        <li><a>My Toys</a></li>
-        <li><a>Add A Toys</a></li>
+        {
+            user ? <>
+                <li><a>My Toys</a></li>
+                <li><a>Add A Toys</a></li>
+            </> :
+                <></>
+        }
         <li>
             <NavLink
                 to='/register'
@@ -27,18 +36,10 @@ const Navbar = () => {
                 Register
             </NavLink>
         </li>
-        <li>
-            <NavLink
-                to='/login'
-                className={({ isActive }) => isActive ? "font-bold text-secondary" : ""}>
-                Login
-            </NavLink>
-        </li>
-
     </>
 
     return (
-        <nav className="navbar bg-base-100">
+        <nav className="navbar bg-base-100 px-16">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -56,7 +57,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">User profile</a>
+                {
+                    user ? <div className="tooltip tooltip-left" data-tip="hello">
+                        <img className='w-12 h-12 rounded-full' src="https://cdn.pixabay.com/photo/2023/05/01/06/19/penguin-7962192_960_720.jpg" alt="" />
+                    </div> :
+                        <button className='btn btn-secondary'>Login</button>
+                }
             </div>
         </nav>
     );
