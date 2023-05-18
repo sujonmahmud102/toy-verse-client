@@ -5,7 +5,7 @@ import { Authcontext } from '../../AuthProvider/AuthProvider';
 
 const Navbar = () => {
     const { user } = useContext(Authcontext);
-    console.log(user)
+
 
     const navItems = <>
         <li>
@@ -58,8 +58,8 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user ? <div className="tooltip tooltip-left" data-tip="hello">
-                        <img className='w-12 h-12 rounded-full' src="https://cdn.pixabay.com/photo/2023/05/01/06/19/penguin-7962192_960_720.jpg" alt="" />
+                    user ? <div className="tooltip tooltip-left" data-tip={user.displayName}>
+                        <img className='rounded-full w-10 h-10 mr-3' src={user.photoURL} alt="User image" />
                     </div> :
                         <button className='btn btn-secondary'>Login</button>
                 }
