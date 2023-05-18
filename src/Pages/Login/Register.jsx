@@ -15,7 +15,7 @@ const Register = () => {
 
 
     // Toast
-    const notify = () => toast.success("Registration Successfull", {
+    const notify = () => toast.success("Registration Successful", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -68,13 +68,13 @@ const Register = () => {
 
     return (
         <div className="hero my-10">
-            <form onSubmit={handleSubmit} className="hero-content w-3/4">
+            <div className="hero-content w-3/4">
                 <div>
                     <img className='w-[600px]' src={img} alt="" />
                 </div>
                 <div className="card md:w-1/2 shadow-2xl">
 
-                    <div className="card-body">
+                    <form onSubmit={handleSubmit} className="card-body">
                         <div>
                             <h1 className="text-4xl font-bold mb-3">Register</h1>
                             <p>Already have an account?  <Link className='text-secondary' to='/login'>Login</Link></p>
@@ -125,9 +125,9 @@ const Register = () => {
                                 Continue With Google
                             </button>
                         </div>
-                    </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     );
 };

@@ -4,9 +4,16 @@ import { Link, NavLink } from 'react-router-dom';
 import { Authcontext } from '../../AuthProvider/AuthProvider';
 
 const Navbar = () => {
-    const { user } = useContext(Authcontext);
+    const { user, logOut } = useContext(Authcontext);
 
-
+    // handle LogOUt
+    const handleLogOUt = () => {
+        logOut()
+            .then()
+            .catch(error => {
+                console.log(error)
+            })
+    }
     const navItems = <>
         <li>
             <NavLink
@@ -58,10 +65,15 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user ? <div className="tooltip tooltip-left" data-tip={user.displayName}>
-                        <img className='rounded-full w-10 h-10 mr-3' src={user.photoURL} alt="User image" />
-                    </div> :
-                        <button className='btn btn-secondary'>Login</button>
+                    user ? <>
+                        <div className="tooltip tooltip-left" data-tip={user.displayName}>
+                            <img className='rounded-full w-10 h-10 mr-3' src={user.photoURL} alt="User image" />
+                        </div>
+                        <button onClick={handleLogOUt} className='bg-gray-900 text-white p-3 rounded-md sm:btn uppercase'>Logout</button>
+                    </> :
+                        <Link to='/login'>
+                            <button className='btn btn-secondary'>Login</button>
+                        </Link>
                 }
             </div>
         </nav>
