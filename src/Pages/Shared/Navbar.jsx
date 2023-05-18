@@ -11,20 +11,28 @@ const Navbar = () => {
             >Home</NavLink>
         </li>
         <li><a>All Toys </a></li>
-        <li><a>Blog</a></li>
+        <li>
+            <NavLink
+                to='/blog'
+                className={({ isActive }) => isActive ? "font-bold text-secondary" : ""}>
+                Blog
+            </NavLink>
+        </li>
         <li><a>My Toys</a></li>
         <li><a>Add A Toys</a></li>
         <li>
             <NavLink
                 to='/register'
-                className={({ isActive }) => isActive ? "font-bold text-secondary" : ""}
-            >Register</NavLink>
+                className={({ isActive }) => isActive ? "font-bold text-secondary" : ""}>
+                Register
+            </NavLink>
         </li>
         <li>
             <NavLink
                 to='/login'
-                className={({ isActive }) => isActive ? "font-bold text-secondary" : ""}
-            >Login</NavLink>
+                className={({ isActive }) => isActive ? "font-bold text-secondary" : ""}>
+                Login
+            </NavLink>
         </li>
 
     </>
