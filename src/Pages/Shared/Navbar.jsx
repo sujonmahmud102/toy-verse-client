@@ -1,13 +1,31 @@
 import React from 'react';
 import logo from '../../assets/logo.png'
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const navItems = <>
-        <li><a>Home</a></li>
+        <li>
+            <NavLink
+                to='/'
+                className={({ isActive }) => isActive ? "font-bold text-secondary" : ""}
+            >Home</NavLink>
+        </li>
         <li><a>All Toys </a></li>
         <li><a>Blog</a></li>
         <li><a>My Toys</a></li>
         <li><a>Add A Toys</a></li>
+        <li>
+            <NavLink
+                to='/register'
+                className={({ isActive }) => isActive ? "font-bold text-secondary" : ""}
+            >Register</NavLink>
+        </li>
+        <li>
+            <NavLink
+                to='/login'
+                className={({ isActive }) => isActive ? "font-bold text-secondary" : ""}
+            >Login</NavLink>
+        </li>
 
     </>
 
