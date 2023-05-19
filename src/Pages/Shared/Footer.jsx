@@ -27,7 +27,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <span className="footer-title">Contact</span>
-                    <p>921 Schoolhouse Court New Bern, NC 28560</p>
+                    <p> 921 Schoolhouse Court New Bern, NC 28560</p>
                     <p>PHONE: 054 / 9923</p>
                     <p>E-MAIL: info@example.com</p>
                 </div>

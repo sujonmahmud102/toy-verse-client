@@ -5,6 +5,7 @@ import img from '../../assets/loginReg.jpg'
 import { Authcontext } from '../../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../hooks/useTitle';
 
 
 
@@ -14,7 +15,7 @@ const Register = () => {
     const [passwordType, setPasswordType] = useState('password');
     const [emailError, setEmailError] = useState('');
     const [passError, setPassError] = useState('');
-
+    useTitle('Register');
 
     // Toast
     const notify = () => toast.success("Registration Successful", {

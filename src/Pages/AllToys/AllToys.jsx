@@ -1,9 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import TableRow from './TableRow';
+import useTitle from '../../hooks/useTitle';
 
 const AllToys = () => {
     const toys = useLoaderData();
+    useTitle('All Toys')
     return (
         <div className='p-16'>
             <div className='flex justify-center mb-8'>

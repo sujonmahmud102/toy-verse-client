@@ -22,9 +22,6 @@ const ShopCategory = () => {
             <Tabs forceRenderTabPanel defaultIndex={1}>
                 <TabList>
                     <Tab>Shop By Category</Tab>
-                    {/* <Tab>Vehicles</Tab>
-                    <Tab>Cars</Tab>
-                    <Tab>Trucks</Tab> */}
                 </TabList>
                 <TabPanel>
                     <Tabs forceRenderTabPanel>
@@ -35,19 +32,19 @@ const ShopCategory = () => {
                         </TabList>
                         {/* tab1 category */}
                         <TabPanel>
-                            <div className='grid md:grid-cols-3 my-4'>
+                            <div className='grid md:grid-cols-3 my-4 gap-5'>
                                 {
                                     vehiclesCategory.map((item, i) => <div key={i}>
                                         <div className="card w-96 bg-base-100 shadow-xl">
                                             <figure className="px-10 pt-10">
-                                                <img src={item.photo} alt="" className="rounded-xl" />
+                                                <img src={item.photo} alt="" className="rounded-xl w-72 h-64" />
                                             </figure>
                                             <div className="card-body items-center text-center">
                                                 <h2 className="card-title">{item.toyName}</h2>
                                                 <p>${item.price} </p>
                                                 <p>{item.rating} </p>
                                                 <div className="card-actions">
-                                                    <button className="btn btn-primary">View Details</button>
+                                                    <button className="btn btn-secondary">View Details</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -55,20 +52,21 @@ const ShopCategory = () => {
                                 }
                             </div>
                         </TabPanel>
+                         {/* tab2 category */}
                         <TabPanel>
-                            <div className='grid md:grid-cols-3 my-4'>
+                            <div className='grid md:grid-cols-3 my-4 gap-5'>
                                 {
                                     carsCategory.map((item, i) => <div key={i}>
                                         <div className="card w-96 bg-base-100 shadow-xl">
                                             <figure className="px-10 pt-10">
-                                                <img src={item.photo} alt="" className="rounded-xl" />
+                                                <img src={item.photo} alt="" className="rounded-xl w-72 h-64" />
                                             </figure>
                                             <div className="card-body items-center text-center">
                                                 <h2 className="card-title">{item.toyName}</h2>
                                                 <p>${item.price} </p>
                                                 <p>{item.rating} </p>
                                                 <div className="card-actions">
-                                                    <button className="btn btn-primary">View Details</button>
+                                                    <button className="btn btn-secondary">View Details</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -76,20 +74,21 @@ const ShopCategory = () => {
                                 }
                             </div>
                         </TabPanel>
+                         {/* tab3 category */}
                         <TabPanel>
-                            <div className='grid md:grid-cols-3 my-4'>
+                            <div className='grid md:grid-cols-3 my-4 gap-5'>
                                 {
                                     trucksCategory.map((item, i) => <div key={i}>
                                         <div className="card w-96 bg-base-100 shadow-xl">
                                             <figure className="px-10 pt-10">
-                                                <img src={item.photo} alt="" className="rounded-xl" />
+                                                <img src={item.photo} alt="" className="rounded-xl w-72 h-64" />
                                             </figure>
                                             <div className="card-body items-center text-center">
                                                 <h2 className="card-title">{item.toyName}</h2>
                                                 <p>${item.price} </p>
                                                 <p>{item.rating} </p>
                                                 <div className="card-actions">
-                                                    <button className="btn btn-primary">View Details</button>
+                                                    <button className="btn btn-secondary">View Details</button>
                                                 </div>
                                             </div>
                                         </div>

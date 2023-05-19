@@ -37,7 +37,13 @@ const Navbar = () => {
         </li>
         {
             user ? <>
-                <li><a>My Toys</a></li>
+                <li>
+                    <NavLink
+                        to='/my-toys'
+                        className={({ isActive }) => isActive ? "font-bold text-secondary" : ""}>
+                        My Toys
+                    </NavLink>
+                </li>
                 <li>
                     <NavLink
                         to='/add-a-toys'

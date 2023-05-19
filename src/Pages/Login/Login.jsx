@@ -5,6 +5,7 @@ import img from '../../assets/loginReg.jpg'
 import { Authcontext } from '../../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const { signInByEmailPass, createdByGoogle } = useContext(Authcontext);
@@ -12,7 +13,7 @@ const Login = () => {
     const [emailError, setEmailError] = useState('');
     const [passError, setPassError] = useState('');
     const navigate = useNavigate();
-
+    useTitle('Login')
 
     // Toast
     const notify = () => toast.success("Successfully Login", {
