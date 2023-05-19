@@ -10,7 +10,7 @@ const photos = [g1, g2, g3, g4, g5, g6];
 
 const PhotoGallery = () => {
     return (
-        <div className='my-10 px-16 bg-[#fb6b47]'>
+        <div className='mb-10 px-16 bg-[#fb6b47]'>
             <h1 className='text-white text-7xl font-semibold text-center p-8 '>
                 Photo Gallery
             </h1>
