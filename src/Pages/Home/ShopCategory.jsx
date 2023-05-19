@@ -6,7 +6,10 @@ import 'react-tabs/style/react-tabs.css';
 const ShopCategory = () => {
     const [toys, setToys] = useState([]);
 
-    console.log(toys)
+    const vehiclesCategory = toys.filter(toy => toy.subCategory === 'Vehicles');
+    const carsCategory = toys.filter(toy => toy.subCategory === 'Cars');
+    const trucksCategory = toys.filter(toy => toy.subCategory === 'Trucks');
+
 
     useEffect(() => {
         fetch('http://localhost:5000/toys')
@@ -32,57 +35,72 @@ const ShopCategory = () => {
                         </TabList>
                         {/* tab1 category */}
                         <TabPanel>
-                            {
-                                toys.filter(toy => console.log(toy))
-                            }
-                            <div className="card w-96 bg-base-100 shadow-xl">
-                                <figure className="px-10 pt-10">
-                                    <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
-                                </figure>
-                                <div className="card-body items-center text-center">
-                                    <h2 className="card-title">Shoes!</h2>
-                                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                                    <div className="card-actions">
-                                        <button className="btn btn-primary">Buy Now</button>
-                                    </div>
-                                </div>
+                            <div className='grid md:grid-cols-3 my-4'>
+                                {
+                                    vehiclesCategory.map((item, i) => <div key={i}>
+                                        <div className="card w-96 bg-base-100 shadow-xl">
+                                            <figure className="px-10 pt-10">
+                                                <img src={item.photo} alt="" className="rounded-xl" />
+                                            </figure>
+                                            <div className="card-body items-center text-center">
+                                                <h2 className="card-title">{item.toyName}</h2>
+                                                <p>${item.price} </p>
+                                                <p>{item.rating} </p>
+                                                <div className="card-actions">
+                                                    <button className="btn btn-primary">View Details</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>)
+                                }
                             </div>
-                            <h2>11111111111111</h2>
                         </TabPanel>
                         <TabPanel>
-                            <div className="card w-96 bg-base-100 shadow-xl">
-                                <figure className="px-10 pt-10">
-                                    <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
-                                </figure>
-                                <div className="card-body items-center text-center">
-                                    <h2 className="card-title">Shoes!</h2>
-                                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                                    <div className="card-actions">
-                                        <button className="btn btn-primary">Buy Now</button>
-                                    </div>
-                                </div>
+                            <div className='grid md:grid-cols-3 my-4'>
+                                {
+                                    carsCategory.map((item, i) => <div key={i}>
+                                        <div className="card w-96 bg-base-100 shadow-xl">
+                                            <figure className="px-10 pt-10">
+                                                <img src={item.photo} alt="" className="rounded-xl" />
+                                            </figure>
+                                            <div className="card-body items-center text-center">
+                                                <h2 className="card-title">{item.toyName}</h2>
+                                                <p>${item.price} </p>
+                                                <p>{item.rating} </p>
+                                                <div className="card-actions">
+                                                    <button className="btn btn-primary">View Details</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>)
+                                }
                             </div>
-                            <h2>222222222222</h2>
                         </TabPanel>
                         <TabPanel>
-                            <div className="card w-96 bg-base-100 shadow-xl">
-                                <figure className="px-10 pt-10">
-                                    <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
-                                </figure>
-                                <div className="card-body items-center text-center">
-                                    <h2 className="card-title">Shoes!</h2>
-                                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                                    <div className="card-actions">
-                                        <button className="btn btn-primary">Buy Now</button>
-                                    </div>
-                                </div>
+                            <div className='grid md:grid-cols-3 my-4'>
+                                {
+                                    trucksCategory.map((item, i) => <div key={i}>
+                                        <div className="card w-96 bg-base-100 shadow-xl">
+                                            <figure className="px-10 pt-10">
+                                                <img src={item.photo} alt="" className="rounded-xl" />
+                                            </figure>
+                                            <div className="card-body items-center text-center">
+                                                <h2 className="card-title">{item.toyName}</h2>
+                                                <p>${item.price} </p>
+                                                <p>{item.rating} </p>
+                                                <div className="card-actions">
+                                                    <button className="btn btn-primary">View Details</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>)
+                                }
                             </div>
-                            <h2>33333333333333</h2>
                         </TabPanel>
                     </Tabs>
                 </TabPanel>
-               
-               
+
+
             </Tabs>
         </div>
     );

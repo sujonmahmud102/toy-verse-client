@@ -1,12 +1,12 @@
 import React from 'react';
 
 const TableRow = ({ toy, index }) => {
-    const { sellerName, title, subCategory, price, quantity } = toy;
+    const { sellerName, toyName, subCategory, price, quantity } = toy;
     return (
         <tr>
             <th>{index + 1}</th>
             <td>{sellerName}</td>
-            <td>{title}</td>
+            <td>{toyName}</td>
             <td>{subCategory}</td>
             <td>${price} </td>
             <td>{quantity} Pcs</td>

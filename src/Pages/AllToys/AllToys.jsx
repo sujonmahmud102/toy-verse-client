@@ -26,7 +26,7 @@ const AllToys = () => {
                             <th>Toy Name</th>
                             <th>Sub Category</th>
                             <th>Price</th>
-                            <th>Available Quantity</th>
+                            <th>Available</th>
                             <th>Details</th>
                         </tr>
                     </thead>
@@ -38,8 +38,6 @@ const AllToys = () => {
                                 toy={toy}
                                 index={index}>  </TableRow>)
                         }
-
-
                     </tbody>
                 </table>
             </div>
