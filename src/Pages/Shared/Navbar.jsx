@@ -66,8 +66,8 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ? <>
-                        <div className="tooltip tooltip-left" data-tip={user.displayName}>
-                            <img className='rounded-full w-10 h-10 mr-3' src={user.photoURL} alt="User image" />
+                        <div className="tooltip tooltip-left" data-tip={user?.displayName}>
+                            <img className='rounded-full w-10 h-10 mr-3' src={user?.photoURL} alt="User image" />
                         </div>
                         <button onClick={handleLogOUt} className='bg-gray-900 text-white p-3 rounded-md sm:btn uppercase'>Logout</button>
                     </> :

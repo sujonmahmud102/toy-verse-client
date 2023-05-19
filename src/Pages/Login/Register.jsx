@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
-    const { createdByEmailPass, updateUserInfo } = useContext(Authcontext);
+    const { createdByEmailPass, updateUserInfo, createdByGoogle } = useContext(Authcontext);
     const [passwordType, setPasswordType] = useState('password');
     const [emailError, setEmailError] = useState('');
     const [passError, setPassError] = useState('');
@@ -85,76 +85,97 @@ const Register = () => {
         // console.log(name, email, password, photo)
     }
 
+    // user create by google
+    const registerByGoogle = () => {
+        createdByGoogle()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                notify();
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     return (
-        <div className="hero my-10">
-            <div className="hero-content w-3/4">
-                <div>
-                    <img className='w-[600px]' src={img} alt="" />
-                </div>
-                <div className="card md:w-1/2 shadow-2xl">
-
-                    <form onSubmit={handleSubmit} className="card-body">
+        <section className='px-4 py-6 md:py-12 md:px-16'>
+            <div className="hero mt-5">
+                <div className="w-3/4 flex items-center  bg-base-100">
+                    <div>
+                        <img className='w-[600px]' src={img} alt="" />
+                    </div>
+                    <div className="md:w-1/2 shadow-2xl">
                         <div>
-                            <h1 className="text-4xl font-bold mb-3">Register</h1>
-                            <p>Already have an account?  <Link className='text-secondary' to='/login'>Login</Link></p>
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Name</span>
-                            </label>
-                            <input type="text" name='name' placeholder="Name" required className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
-                            <input type="text" name='email' placeholder="Email" required className="input input-bordered" />
-                            <p className='text-red-500 text-sm'>
-                                <small>{emailError}</small>
-                            </p>
-                        </div>
-                        <div className="form-control relative">
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
-                            <input type={passwordType} name='password' placeholder="Password" required className="input input-bordered pr-10" />
-                            <p className='text-red-500 text-sm'>
-                                <small>{passError}</small>
-                            </p>
-                            <div className="absolute right-1 top-11 p-2 rounded-md" onClick={handlePassType}>
-                                {
-                                    passwordType === 'password' ?
-                                        <span>  < FaEye ></FaEye></span>
-                                        :
-                                        <span> <FaEyeSlash></FaEyeSlash></span>
-                                }
+                            <div className="card-body border-solid border-2 rounded-lg">
+                                <div>
+                                    <h1 className="text-4xl font-bold mb-3">Register</h1>
+                                    <p>Already have an account?  <Link className='text-secondary' to='/login'>Login</Link></p>
+                                </div>
+                                {/* form start */}
+                                <form onSubmit={handleSubmit} >
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text">Name</span>
+                                        </label>
+                                        <input type="text" name='name' placeholder="Name" required className="input input-bordered" />
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text">Email</span>
+                                        </label>
+                                        <input type="text" name='email' placeholder="Email" required className="input input-bordered" />
+                                        <p className='text-red-500 text-sm'>
+                                            <small>{emailError}</small>
+                                        </p>
+                                    </div>
+                                    <div className="form-control relative">
+                                        <label className="label">
+                                            <span className="label-text">Password</span>
+                                        </label>
+                                        <input type={passwordType} name='password' placeholder="Password" required className="input input-bordered pr-10" />
+                                        <p className='text-red-500 text-sm'>
+                                            <small>{passError}</small>
+                                        </p>
+                                        <div className="absolute right-1 top-11 p-2 rounded-md" onClick={handlePassType}>
+                                            {
+                                                passwordType === 'password' ?
+                                                    <span>  < FaEye ></FaEye></span>
+                                                    :
+                                                    <span> <FaEyeSlash></FaEyeSlash></span>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text">Photo URL</span>
+                                        </label>
+                                        <input type="text" name='photo' placeholder="Photo URL" required className="input input-bordered" />
+                                    </div>
+                                    <div className="form-control mt-6">
+                                        <button className="py-2 btn-secondary rounded-lg">Register</button>
+                                        {/* toast */}
+                                        <ToastContainer />
+                                    </div>
+                                </form>
+                                {/* form end */}
+                                <div>
+                                    <div className="divider">OR</div>
+                                    <div onClick={registerByGoogle} className='flex justify-center items-center btn btn-outline btn-light'>
+                                        <div>
+                                            <FaGoogle></FaGoogle>
+                                        </div>
+                                        <button className='ml-4'>
+                                            Continue With Google
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Photo URL</span>
-                            </label>
-                            <input type="text" name='photo' placeholder="Photo URL" required className="input input-bordered" />
-                        </div>
-                        <div className="form-control mt-6">
-                            <button className="py-2 btn-secondary rounded-lg">Register</button>
-                            {/* toast */}
-                            <ToastContainer />
-                        </div>
-                        <div className="divider">OR</div>
-                        <div className='flex justify-center items-center btn btn-outline btn-light'>
-                            <div>
-                                <FaGoogle></FaGoogle>
-                            </div>
-                            <button className='ml-4'>
-                                Continue With Google
-                            </button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
