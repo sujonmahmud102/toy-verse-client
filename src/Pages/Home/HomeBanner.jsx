@@ -37,9 +37,9 @@ const HomeBanner = () => {
         {/* slider 1 */}
         <SwiperSlide>
           <div className='relative'>
-            <img className='w-screen h-screen' src={banner1} alt="" />
+            <img className='w-screen h-screen brightness-50' src={banner1} alt="" />
             <div className='absolute top-36 left-[18rem] text-center'>
-              <h3 className='text-8xl font-bold text-indigo-500'>Kids Toys & Gift Shop</h3>
+              <h3 className='text-8xl font-bold text-white'>Kids Toys & Gift Shop</h3>
               <h4 className='text-white text-3xl font-semibold mt-6'>Get Up To 30% Off Available</h4>
               <button className='btn btn-secondary mt-6'>Shop Now</button>
             </div>
@@ -48,7 +48,7 @@ const HomeBanner = () => {
         {/* slider 2 */}
         <SwiperSlide>
           <div className='relative'>
-            <img className='w-screen h-screen' src={banner2} alt="" />
+            <img className='w-screen h-screen brightness-50' src={banner2} alt="" />
             <div className='absolute top-36 left-[18rem] text-center'>
               <h3 className='text-8xl font-bold text-white'>New Toys For Your Kids</h3>
               <h4 className='text-white text-3xl font-semibold mt-6'>Get Up To 20% Off Available</h4>
