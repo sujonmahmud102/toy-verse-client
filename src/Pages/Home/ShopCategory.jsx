@@ -10,11 +10,10 @@ import Swal from 'sweetalert2';
 const ShopCategory = () => {
     const [toys, setToys] = useState([]);
     const { user } = useContext(Authcontext);
-    const navigate = useNavigate();
 
 
     // check user logged in or not
-    const handleCheckUser = _id => {
+    const handleCheckUser = () => {
         if (!user) {
             alert('You have to log in first to view details')
         }
@@ -57,7 +56,7 @@ const ShopCategory = () => {
                                                 <p>Ratings: {item.rating} </p>
                                                 <div className="card-actions">
                                                     <Link to={`${user ? `/toy/${item._id}` : '/login'}`}>
-                                                        <button onClick={() => handleCheckUser(item._id)} className="btn btn-secondary">View Details</button>
+                                                        <button onClick={handleCheckUser} className="btn btn-secondary">View Details</button>
                                                     </Link>
 
                                                 </div>
@@ -80,7 +79,7 @@ const ShopCategory = () => {
                                                 <p>Ratings: {item.rating} </p>
                                                 <div className="card-actions">
                                                     <Link to={`${user ? `/toy/${item._id}` : '/login'}`}>
-                                                        <button onClick={() => handleCheckUser(item._id)} className="btn btn-secondary">View Details</button>
+                                                        <button onClick={handleCheckUser} className="btn btn-secondary">View Details</button>
                                                     </Link>
 
                                                 </div>
@@ -103,7 +102,7 @@ const ShopCategory = () => {
                                                 <p>Ratings: {item.rating} </p>
                                                 <div className="card-actions">
                                                     <Link to={`${user ? `/toy/${item._id}` : '/login'}`}>
-                                                        <button onClick={() => handleCheckUser(item._id)} className="btn btn-secondary">View Details</button>
+                                                        <button onClick={handleCheckUser} className="btn btn-secondary">View Details</button>
                                                     </Link>
 
                                                 </div>

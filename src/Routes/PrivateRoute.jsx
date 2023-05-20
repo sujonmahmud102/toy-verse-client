@@ -11,12 +11,12 @@ const PrivateRoute = ({ children }) => {
             <progress className="progress w-56"></progress>
         </div>;
     }
-    
+
     if (user) {
         return children;
     }
 
-    return <Navigate to='/login'></Navigate>;
+    return <Navigate to='/login' replace={true}></Navigate>;
 };
 
 export default PrivateRoute;

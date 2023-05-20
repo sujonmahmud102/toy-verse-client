@@ -68,7 +68,7 @@ const Blog = () => {
                 {/* answer 3*/}
                 <div className='mb-4 text-justify'>
                     <hp>
-                        <span className='font-semibold text-secondary'>Answer:</span> Express.js is a minimal and flexible web application framework for Node.js. It provides a simple and straightforward way to build web applications and APIs.
+                        <span className='font-semibold text-secondary underline decoration-wavy'>Answer:</span> Express.js is a minimal and flexible web application framework for Node.js. It provides a simple and straightforward way to build web applications and APIs.
                     </hp>
                     <br />
                     <p>
@@ -84,7 +84,7 @@ const Blog = () => {
                 </h3>
                 {/* answer 4 */}
                 <div className='mb-4 text-justify'>
-                    <p><span className='font-semibold text-secondary'>Answer:</span> In MongoDB, the aggregate method is used to perform advanced data aggregation operations on a collection. It allows you to process and analyze data by combining multiple stages into a pipeline. The aggregate pipeline consists of one or more stages, each performing a specific operation on the data.</p>
+                    <p><span className='font-semibold text-secondary underline decoration-wavy'>Answer:</span> In MongoDB, the aggregate method is used to perform advanced data aggregation operations on a collection. It allows you to process and analyze data by combining multiple stages into a pipeline. The aggregate pipeline consists of one or more stages, each performing a specific operation on the data.</p>
 
                     <p>Here's an overview of how the MongoDB aggregate method works:</p>
 
