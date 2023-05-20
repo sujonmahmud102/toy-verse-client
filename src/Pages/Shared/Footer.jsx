@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../assets/logo.png';
-import { ImLocation, ImPhone, ImMail4 } from "react-icons/im";
+import { ImLocation ,ImPhone,ImMail4} from "react-icons/im";
 
 const Footer = () => {
     return (
