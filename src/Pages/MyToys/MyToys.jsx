@@ -8,7 +8,8 @@ const MyToys = () => {
     useTitle('My Toys');
     const [myToys, setMyToys] = useState([]);
 
-    const url = `http://localhost:5000/toys?sellerEmail=${user.email}`
+    const url = `http://localhost:5000/toys?sellerEmail=${user?.email}`
+    // console.log(url)
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
