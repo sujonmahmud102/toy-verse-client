@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import TableRow from './TableRow';
 import useTitle from '../../hooks/useTitle';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 const AllToys = () => {
     const toys = useLoaderData();
-    useTitle('All Toys')
+    useTitle('All Toys');
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const handleSearch = event => {
+        setSearchQuery(event.target.value)
+    }
+
+    const filteredItems = toys.filter((item) =>
+        item.toyName.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+
+
     return (
         <div className='p-16'>
             <div className='flex justify-center mb-8'>
-                <div className="form-control mx-auto">
-                    <div className="input-group">
-                        <input type="text" placeholder="Search by toy name" className="input input-bordered" />
-                        <button className="btn btn-secondary">
-                            Search
-                        </button>
+                <div className="relative w-2/5">
+                    <input onChange={handleSearch} value={searchQuery} type="text" placeholder="Search by toy name" className="input input-bordered input-secondary w-full pl-8" />
+                    <div className='absolute top-[14px] left-2 text-2xl text-gray-400'>
+                        <AiOutlineSearch></AiOutlineSearch>
                     </div>
                 </div>
             </div>
@@ -35,7 +46,7 @@ const AllToys = () => {
                     <tbody>
                         {/* table row  */}
                         {
-                            toys.map((toy, index) => <TableRow
+                            filteredItems.map((toy, index) => <TableRow
                                 key={index}
                                 toy={toy}
                                 index={index}>  </TableRow>)
