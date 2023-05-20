@@ -4,26 +4,27 @@ import logo from '../../assets/logo.png'
 const Footer = () => {
     return (
         <>
-            <footer className="footer p-10 bg-base-200 text-base-content">
+            <footer className="footer p-16 bg-base-200 text-base-content">
                 <div>
-                    <span className="footer-title">Services</span>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
+                    <span className="footer-title">My Account</span>
+                    <a className="link link-hover">Shop Affiliate</a>
+                    <a className="link link-hover">About ToyVerse</a>
+                    <a className="link link-hover">Delivery Information</a>
+                    <a className="link link-hover">Privacy Policy</a>
                 </div>
                 <div>
                     <span className="footer-title">Company</span>
                     <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
+                    <a className="link link-hover">Contact us</a>
+                    <a className="link link-hover">Privacy Policy</a>
+                    <a className="link link-hover">Terms & Conditions</a>
                 </div>
                 <div>
-                    <span className="footer-title">Legal</span>
-                    <a className="link link-hover">Terms of use</a>
-                    <a className="link link-hover">Privacy policy</a>
-                    <a className="link link-hover">Cookie policy</a>
+                    <span className="footer-title">Our Policy</span>
+                    <a className="link link-hover">Top Brands</a>
+                    <a className="link link-hover">Gift Certificates</a>
+                    <a className="link link-hover">My Account</a>
+                    <a className="link link-hover">Site Map</a>
                 </div>
                 <div>
                     <span className="footer-title">Contact</span>

@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import img from '../../assets/loginReg.jpg'
 import { Authcontext } from '../../AuthProvider/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useTitle from '../../hooks/useTitle';
+import Swal from 'sweetalert2';
 
 
 
@@ -16,18 +16,8 @@ const Register = () => {
     const [emailError, setEmailError] = useState('');
     const [passError, setPassError] = useState('');
     useTitle('Register');
+    const navigate = useNavigate();
 
-    // Toast
-    const notify = () => toast.success("Registration Successful", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-    });
 
     // handle password type change
     const handlePassType = () => {
@@ -53,15 +43,21 @@ const Register = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 setPassError('');
-                notify();
+                setEmailError('');
                 form.reset();
-                location.reload();
+                Swal.fire(
+                    'Good job!',
+                    'You have successfully registered',
+                    'success'
+                );
                 // update profile
                 updateUserInfo(name, photo)
                     .then()
                     .catch(error => {
                         console.log(error)
-                    })
+                    });
+                navigate('/');
+                location.reload();
             })
             .catch(error => {
                 console.log(error);
@@ -92,7 +88,12 @@ const Register = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                notify();
+                Swal.fire(
+                    'Good job!',
+                    'Successfully login by Google',
+                    'success'
+                );
+                navigate('/');
             })
             .catch(error => {
                 console.log(error)
@@ -155,8 +156,6 @@ const Register = () => {
                                     </div>
                                     <div className="form-control mt-6">
                                         <button className="py-2 btn-secondary rounded-lg">Register</button>
-                                        {/* toast */}
-                                        <ToastContainer />
                                     </div>
                                 </form>
                                 {/* form end */}

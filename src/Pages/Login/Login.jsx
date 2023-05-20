@@ -3,9 +3,9 @@ import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import img from '../../assets/loginReg.jpg'
 import { Authcontext } from '../../AuthProvider/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useTitle from '../../hooks/useTitle';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const { signInByEmailPass, createdByGoogle } = useContext(Authcontext);
@@ -14,18 +14,6 @@ const Login = () => {
     const [passError, setPassError] = useState('');
     const navigate = useNavigate();
     useTitle('Login')
-
-    // Toast
-    const notify = () => toast.success("Successfully Login", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-    });
 
     // handle password type change
     const handlePassType = () => {
@@ -50,10 +38,13 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 // console.log(loggedUser);
-                notify();
+                Swal.fire(
+                    'Good job!',
+                    'Successfully login',
+                    'success'
+                );
                 form.reset();
                 navigate('/');
-                location.reload();
 
             })
             .catch(error => {
@@ -84,7 +75,11 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                notify();
+                Swal.fire(
+                    'Good job!',
+                    'Successfully login by Google',
+                    'success'
+                );
                 navigate('/');
             })
             .catch(error => {
@@ -137,8 +132,6 @@ const Login = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <button className="py-2 btn-secondary rounded-lg">Login</button>
-                                {/* toast */}
-                                <ToastContainer />
                             </div>
                         </form>
                         {/* form end */}
