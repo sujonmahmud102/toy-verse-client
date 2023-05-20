@@ -4,6 +4,7 @@ import PhotoGallery from './PhotoGallery';
 import ShopCategory from './ShopCategory';
 import useTitle from '../../hooks/useTitle';
 import PopularToys from './PopularToys';
+import PeopleSay from './PeopleSay';
 
 const Home = () => {
     useTitle('Home')
@@ -13,6 +14,7 @@ const Home = () => {
             <PhotoGallery></PhotoGallery>
             <ShopCategory></ShopCategory>
             <PopularToys></PopularToys>
+            <PeopleSay></PeopleSay>
         </main>
     );
 };
