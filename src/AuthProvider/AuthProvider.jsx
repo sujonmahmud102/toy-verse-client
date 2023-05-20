@@ -11,13 +11,13 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
 
-    // user register by email & password
+    // user create by email & password
     const createdByEmailPass = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    // user created by email & password
+    // user signIn by email & password
     const signInByEmailPass = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
@@ -62,7 +62,8 @@ const AuthProvider = ({ children }) => {
         createdByGoogle,
         updateUserInfo,
         signInByEmailPass,
-        logOut
+        logOut,
+        loading
     };
 
     return (

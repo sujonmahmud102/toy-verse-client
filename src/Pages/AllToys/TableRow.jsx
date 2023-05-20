@@ -22,7 +22,7 @@ const TableRow = ({ toy, index }) => {
             <td>${price} </td>
             <td>{quantity} Pcs</td>
             <td>
-                <Link to={`${user ? `/toy/${_id}` : '/login'}`}>
+                <Link to={`/toy/${_id}`}>
                     <button onClick={handleCheckUser} className="text-secondary">View Details</button>
                 </Link>
             </td>

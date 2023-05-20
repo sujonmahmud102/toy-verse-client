@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/loginReg.jpg'
 import { Authcontext } from '../../AuthProvider/AuthProvider';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,7 +13,10 @@ const Login = () => {
     const [emailError, setEmailError] = useState('');
     const [passError, setPassError] = useState('');
     const navigate = useNavigate();
-    useTitle('Login')
+    useTitle('Login');
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     // handle password type change
     const handlePassType = () => {
@@ -44,7 +47,7 @@ const Login = () => {
                     'success'
                 );
                 form.reset();
-                navigate('/');
+                navigate(from, { replace: true });
 
             })
             .catch(error => {

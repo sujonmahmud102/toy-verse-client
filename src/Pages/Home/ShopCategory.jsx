@@ -55,10 +55,9 @@ const ShopCategory = () => {
                                                 <p>Price: ${item.price} </p>
                                                 <p>Ratings: {item.rating} </p>
                                                 <div className="card-actions">
-                                                    <Link to={`${user ? `/toy/${item._id}` : '/login'}`}>
+                                                    <Link to={`/toy/${item._id}`}>
                                                         <button onClick={handleCheckUser} className="btn btn-secondary">View Details</button>
                                                     </Link>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -78,7 +77,7 @@ const ShopCategory = () => {
                                                 <p>Price: ${item.price} </p>
                                                 <p>Ratings: {item.rating} </p>
                                                 <div className="card-actions">
-                                                    <Link to={`${user ? `/toy/${item._id}` : '/login'}`}>
+                                                    <Link to={`/toy/${item._id}`}>
                                                         <button onClick={handleCheckUser} className="btn btn-secondary">View Details</button>
                                                     </Link>
 
@@ -101,7 +100,7 @@ const ShopCategory = () => {
                                                 <p>Price: ${item.price} </p>
                                                 <p>Ratings: {item.rating} </p>
                                                 <div className="card-actions">
-                                                    <Link to={`${user ? `/toy/${item._id}` : '/login'}`}>
+                                                    <Link to={`/toy/${item._id}`}>
                                                         <button onClick={handleCheckUser} className="btn btn-secondary">View Details</button>
                                                     </Link>
 

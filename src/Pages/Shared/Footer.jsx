@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.png';
+import { ImLocation, ImPhone, ImMail4 } from "react-icons/im";
 
 const Footer = () => {
     return (
@@ -28,9 +29,9 @@ const Footer = () => {
                 </div>
                 <div>
                     <span className="footer-title">Contact</span>
-                    <p> 921 Schoolhouse Court New Bern, NC 28560</p>
-                    <p>PHONE: 054 / 9923</p>
-                    <p>E-MAIL: info@example.com</p>
+                    <p className='flex items-center gap-1'><ImLocation></ImLocation> 921 Schoolhouse Court New Bern, NC 28560</p>
+                    <p className='flex items-center gap-1'><ImPhone></ImPhone> 054 / 9923</p>
+                    <p className='flex items-center gap-1'><ImMail4></ImMail4> info@example.com</p>
                 </div>
             </footer>
             <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
