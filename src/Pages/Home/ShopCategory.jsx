@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
@@ -44,7 +45,9 @@ const ShopCategory = () => {
                                                 <p>${item.price} </p>
                                                 <p>{item.rating} </p>
                                                 <div className="card-actions">
-                                                    <button className="btn btn-secondary">View Details</button>
+                                                    <Link to={`/toy/${item._id}`}>
+                                                        <button className="btn btn-secondary">View Details</button>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -52,7 +55,7 @@ const ShopCategory = () => {
                                 }
                             </div>
                         </TabPanel>
-                         {/* tab2 category */}
+                        {/* tab2 category */}
                         <TabPanel>
                             <div className='grid md:grid-cols-3 my-4 gap-5'>
                                 {
@@ -66,7 +69,9 @@ const ShopCategory = () => {
                                                 <p>${item.price} </p>
                                                 <p>{item.rating} </p>
                                                 <div className="card-actions">
-                                                    <button className="btn btn-secondary">View Details</button>
+                                                    <Link to={`/toy/${item._id}`}>
+                                                        <button className="btn btn-secondary">View Details</button>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -74,7 +79,7 @@ const ShopCategory = () => {
                                 }
                             </div>
                         </TabPanel>
-                         {/* tab3 category */}
+                        {/* tab3 category */}
                         <TabPanel>
                             <div className='grid md:grid-cols-3 my-4 gap-5'>
                                 {
@@ -88,7 +93,9 @@ const ShopCategory = () => {
                                                 <p>${item.price} </p>
                                                 <p>{item.rating} </p>
                                                 <div className="card-actions">
-                                                    <button className="btn btn-secondary">View Details</button>
+                                                    <Link to={`/toy/${item._id}`}>
+                                                        <button className="btn btn-secondary">View Details</button>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
