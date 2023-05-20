@@ -4,12 +4,12 @@ import { AiFillDelete } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const MyToysTableRow = ({ toy, index }) => {
+const MyToysTableRow = ({ toy, myToys, setMyToys, index }) => {
     const { _id, sellerName, toyName, subCategory, price, quantity } = toy;
 
-
+    // console.log(myToys)
     const handleDeleteItem = id => {
-        console.log(id);
+
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -32,8 +32,10 @@ const MyToysTableRow = ({ toy, index }) => {
                                 'Deleted!',
                                 'Your toy has been deleted.',
                                 'success'
-                            )
-                        }
+                            );
+                            const remaining = myToys.filter(toy => toy._id !== _id);
+                            setMyToys(remaining);
+                        };
                     })
             }
         })
@@ -49,7 +51,7 @@ const MyToysTableRow = ({ toy, index }) => {
             <td>{quantity} Pcs</td>
             <td> <button className='flex gap-4'>
                 <span className="tooltip" data-tip="Update Toy Info">
-                    <Link to={`/my-toys/update/${_id}`}><FaEdit></FaEdit></Link>
+                    <Link to={`/updateToy/${_id}`}><FaEdit></FaEdit></Link>
                 </span>
                 <span onClick={() => handleDeleteItem(_id)} className="tooltip tooltip-secondary text-red-500" data-tip="Remove Toy">
                     <AiFillDelete></AiFillDelete>

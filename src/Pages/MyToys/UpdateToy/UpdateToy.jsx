@@ -2,11 +2,15 @@ import React, { useContext } from 'react';
 import Swal from "sweetalert2";
 import useTitle from '../../../hooks/useTitle';
 import { Authcontext } from '../../../AuthProvider/AuthProvider';
+import { useLoaderData } from 'react-router-dom';
 
 
 const UpdateToy = () => {
+    useTitle('Update A Toys');
     const { user } = useContext(Authcontext);
-    useTitle('Update A Toys')
+    const toy = useLoaderData();
+
+    const { _id, photo, toyName, subCategory, price, rating, quantity, description } = toy;
 
     const handleUpdateToy = event => {
         event.preventDefault();
@@ -20,24 +24,24 @@ const UpdateToy = () => {
         const description = form.description.value;
 
 
-        const newToy = { photo, toyName, subCategory, price, rating, quantity, description };
+        const updatedToy = { photo, toyName, subCategory, price, rating, quantity, description };
 
 
-        fetch('http://localhost:5000/addAToy', {
-            method: 'POST',
+        fetch(`http://localhost:5000/updateToy/${_id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newToy)
+            body: JSON.stringify(updatedToy)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.insertedId) {
+                if (data.modifiedCount > 0) {
                     form.reset();
                     Swal.fire({
                         title: 'Success',
-                        text: 'Toy added successfully',
+                        text: 'Toy updated successfully',
                         icon: 'success',
                         confirmButtonText: 'OK'
                     })
@@ -46,12 +50,12 @@ const UpdateToy = () => {
             })
 
 
-        // console.log(newToy)
+        console.log(updatedToy)
     }
 
     return (
         <div className="m-24 bg-[#edeaed] rounded-lg p-8">
-            <h3 className='text-3xl font-bold text-center mb-4'>Update Toy Information</h3>
+            <h3 className='text-3xl font-bold text-center mb-4'>Update Toy Information For {toyName}</h3>
             <form onSubmit={handleUpdateToy}>
                 {/* form first row */}
                 <div className="flex justify-between gap-4">
@@ -60,7 +64,7 @@ const UpdateToy = () => {
                             <span className="label-text">Toy Picture</span>
                         </label>
                         <label className="input-group input-group-vertical">
-                            <input type="text" name="photo" placeholder="Enter toy picture URL" className="input input-bordered w-full" />
+                            <input type="text" name="photo" defaultValue={photo} placeholder="Enter toy picture URL" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control  w-1/2">
@@ -68,7 +72,7 @@ const UpdateToy = () => {
                             <span className="label-text">Toy Name</span>
                         </label>
                         <label className="input-group input-group-vertical">
-                            <input type="text" name="toyName" placeholder="Enter toy name" className="input input-bordered" />
+                            <input type="text" name="toyName" defaultValue={toyName} placeholder="Enter toy name" className="input input-bordered" />
                         </label>
                     </div>
                 </div>
@@ -80,7 +84,7 @@ const UpdateToy = () => {
                                 <span className="label-text">Sub Category</span>
                             </label>
                             <label className="input-group input-group-vertical">
-                                <select name="subCategory" id="" className='p-3'>
+                                <select defaultValue={subCategory} name="subCategory" id="" className='p-3'>
                                     <option value="Vehicles">Vehicles</option>
                                     <option value="Cars">Cars</option>
                                     <option value="Trucks">Trucks</option>
@@ -92,7 +96,7 @@ const UpdateToy = () => {
                                 <span className="label-text">Price</span>
                             </label>
                             <label className="input-group input-group-vertical">
-                                <input type="text" name="price" placeholder="Enter toy price" className="input input-bordered" />
+                                <input type="text" name="price" defaultValue={price} placeholder="Enter toy price" className="input input-bordered" />
                             </label>
                         </div>
                     </div>
@@ -105,7 +109,7 @@ const UpdateToy = () => {
                                 <span className="label-text">Rating</span>
                             </label>
                             <label className="input-group input-group-vertical">
-                                <input type="text" name="rating" placeholder="Enter rating" className="input input-bordered w-full" />
+                                <input type="text" name="rating" defaultValue={rating} placeholder="Enter rating" className="input input-bordered w-full" />
                             </label>
                         </div>
                         <div className="form-control  w-1/2">
@@ -113,7 +117,7 @@ const UpdateToy = () => {
                                 <span className="label-text">Available Quantity</span>
                             </label>
                             <label className="input-group input-group-vertical">
-                                <input type="number" name="quantity" placeholder="Enter toy avaialable quantity" className="input input-bordered" />
+                                <input type="number" name="quantity" defaultValue={quantity} placeholder="Enter toy avaialable quantity" className="input input-bordered" />
                             </label>
                         </div>
                     </div>
@@ -124,7 +128,7 @@ const UpdateToy = () => {
                         <span className="label-text">Toy Description</span>
                     </label>
                     <label className="input-group input-group-vertical">
-                        <textarea name="description" placeholder="Enter toy description" className="textarea textarea-bordered textarea-sm w-full" ></textarea>
+                        <textarea name="description" defaultValue={description} placeholder="Enter toy description" className="textarea textarea-bordered textarea-sm w-full" ></textarea>
 
                     </label>
                 </div>

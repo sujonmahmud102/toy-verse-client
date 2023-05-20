@@ -37,6 +37,8 @@ const MyToys = () => {
                         myToys.map((toy, index) => <MyToysTableRow
                             key={index}
                             toy={toy}
+                            myToys={myToys}
+                            setMyToys={setMyToys}
                             index={index}>  </MyToysTableRow>)
                     }
                 </tbody>
