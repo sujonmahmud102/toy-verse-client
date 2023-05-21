@@ -3,8 +3,8 @@
 - **Hosted Client Side in Firebase** -> (https://toy-marketplace-10467.web.app/)
 
 - **Hosted Server Side in Vercel** -> (https://toy-marketplace-a11-server.vercel.app/)
-- Toys Data -> (https://toy-marketplace-a11-server.vercel.app/toys)
-- Single Toy Data -> (https://toy-marketplace-a11-server.vercel.app/toy/${id})
+   - Toys Data -> (https://toy-marketplace-a11-server.vercel.app/toys)
+   - Single Toy Data -> (https://toy-marketplace-a11-server.vercel.app/toy/${id})
 
 # Codes Links
 

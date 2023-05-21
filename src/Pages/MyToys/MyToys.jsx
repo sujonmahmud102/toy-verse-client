@@ -12,7 +12,7 @@ const MyToys = () => {
 
     const fetchData = async (sortOrder) => {
         try {
-            const response = await axios.get(`http://localhost:5000/toys?sellerEmail=${user?.email}&sort=${sortOrder}`);
+            const response = await axios.get(`https://toy-marketplace-a11-server.vercel.app/toys?sellerEmail=${user?.email}&sort=${sortOrder}`);
             setMyToys(response.data);
         } catch (error) {
             console.error('Error fetching data:', error);
