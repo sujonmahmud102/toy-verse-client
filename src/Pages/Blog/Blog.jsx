@@ -67,9 +67,9 @@ const Blog = () => {
                 </h3>
                 {/* answer 3*/}
                 <div className='mb-4 text-justify'>
-                    <hp>
+                    <p>
                         <span className='font-semibold text-secondary underline decoration-wavy'>Answer:</span> Express.js is a minimal and flexible web application framework for Node.js. It provides a simple and straightforward way to build web applications and APIs.
-                    </hp>
+                    </p>
                     <br />
                     <p>
                         Nest.js is a progressive, opinionated framework for building scalable and maintainable server-side applications using TypeScript. It takes advantage of TypeScript's features and Object-Oriented Programming (OOP) principles.

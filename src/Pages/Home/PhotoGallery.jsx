@@ -17,7 +17,10 @@ const PhotoGallery = () => {
             <div className='grid md:grid-cols-3 gap-8 mx-auto p-10'>
                 {
                     photos.map((photo, i) => <div key={i}>
-                        <img className='w-3/4 rounded-lg hover:brightness-50 transition duration-700' src={photo} alt="" />
+                        <img data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="1000"
+                         className='w-3/4 rounded-lg hover:brightness-50 transition duration-700' src={photo} alt="" />
                     </div>)
                 }
             </div>

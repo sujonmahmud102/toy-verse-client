@@ -9,7 +9,8 @@ const PopularToys = () => {
     return (
         <div className="px-16 my-10">
             <h1 className="text-center text-5xl font-semibold my-3">Explore Popular Toys</h1>
-            <Swiper
+            <Swiper data-aos="fade-up"
+                data-aos-duration="3000"
                 slidesPerView={1}
                 spaceBetween={10}
                 pagination={{

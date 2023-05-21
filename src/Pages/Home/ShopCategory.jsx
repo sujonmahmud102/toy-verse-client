@@ -48,7 +48,7 @@ const ShopCategory = () => {
                             <div className='grid md:grid-cols-3 my-4 gap-5'>
                                 {
                                     vehiclesCategory.map((item, i) => <div key={i}>
-                                        <div className="card w-96 h-[450px] bg-base-100 border border-pink-100 shadow-xl">
+                                        <div data-aos="zoom-in" className="card w-96 h-[450px] bg-base-100 border border-pink-100 shadow-xl">
                                             <img src={item.photo} alt="" className="rounded-lg w-[230px] h-[200px] pt-8 mx-auto" />
                                             <div className="card-body items-center text-center">
                                                 <h2 className="card-title">{item.toyName}</h2>
@@ -70,7 +70,7 @@ const ShopCategory = () => {
                             <div className='grid md:grid-cols-3 my-4 gap-5'>
                                 {
                                     carsCategory.map((item, i) => <div key={i}>
-                                        <div className="card w-96 h-[450px] bg-base-100 border border-pink-100 shadow-xl">
+                                        <div data-aos="zoom-out-down" className="card w-96 h-[450px] bg-base-100 border border-pink-100 shadow-xl">
                                             <img src={item.photo} alt="" className="rounded-lg w-[230px] h-[200px] pt-8 mx-auto" />
                                             <div className="card-body items-center text-center">
                                                 <h2 className="card-title">{item.toyName}</h2>
@@ -93,7 +93,7 @@ const ShopCategory = () => {
                             <div className='grid md:grid-cols-3 my-4 gap-5'>
                                 {
                                     trucksCategory.map((item, i) => <div key={i}>
-                                        <div className="card w-96 h-[450px] bg-base-100 border border-pink-100 shadow-xl">
+                                        <div data-aos="zoom-in" className="card w-96 h-[450px] bg-base-100 border border-pink-100 shadow-xl">
                                             <img src={item.photo} alt="" className="rounded-lg w-[230px] h-[200px] pt-8 mx-auto" />
                                             <div className="card-body items-center text-center">
                                                 <h2 className="card-title">{item.toyName}</h2>
