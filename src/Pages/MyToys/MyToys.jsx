@@ -9,6 +9,9 @@ const MyToys = () => {
     const { user } = useContext(Authcontext);
     useTitle('My Toys');
     const [myToys, setMyToys] = useState([]);
+    const [clickAsc, setClickAsc] = useState('black')
+    const [clickDesc, setClickDesc] = useState('black')
+
 
     const fetchData = async (sortOrder) => {
         try {
@@ -26,6 +29,20 @@ const MyToys = () => {
     // handle sort
     const handleSort = sortOrder => {
         fetchData(sortOrder);
+
+        // click check
+        if (sortOrder === 'asc') {
+            setClickDesc('black');
+            setClickAsc('secondary');
+        }
+        else if (sortOrder === 'desc') {
+            setClickAsc('black');
+            setClickDesc('secondary');
+        }
+        else {
+            setClickAsc('black');
+            setClickDesc('black');
+        }
     }
 
 
@@ -39,7 +56,11 @@ const MyToys = () => {
                         <th>Seller</th>
                         <th>Toy Name</th>
                         <th>Sub Category</th>
-                        <th className='flex gap-2'>Price <button onClick={() => handleSort('asc')} className='tooltip' data-tip="Sort Ascending"><FaArrowDown></FaArrowDown></button> <button onClick={() => handleSort('desc')} className='tooltip' data-tip="Sort Descending"><FaArrowUp></FaArrowUp></button></th>
+                        <th className='flex gap-2'>Price
+                            <button onClick={() => handleSort('asc')} className={`tooltip text-${clickAsc}`} data-tip="Sort Ascending"><FaArrowDown></FaArrowDown></button>
+                            <button onClick={() => handleSort('desc')} className={`tooltip text-${clickDesc}`} data-tip="Sort Descending"><FaArrowUp></FaArrowUp>
+                            </button>
+                        </th>
                         <th>Available</th>
                         <th>Actions</th>
                     </tr>

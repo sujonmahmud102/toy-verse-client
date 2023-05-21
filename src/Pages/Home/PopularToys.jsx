@@ -9,7 +9,7 @@ const PopularToys = () => {
     return (
         <div className="px-4 md:px-16 my-10">
 
-            <h1 className="text-center text-3xl md:text-5xl font-semibold md:my-3">Explore Popular Toys</h1>
+            <h1 className="text-center text-3xl md:text-7xl font-semibold md:my-3">Explore Popular Toys</h1>
 
             <Swiper
                 data-aos="flip-up"
