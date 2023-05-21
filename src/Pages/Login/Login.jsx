@@ -83,7 +83,7 @@ const Login = () => {
                     'Successfully login by Google',
                     'success'
                 );
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error)

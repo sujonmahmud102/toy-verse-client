@@ -24,7 +24,7 @@ const AddAToys = () => {
         const newToy = { photo, toyName, sellerName, sellerEmail, subCategory, price, rating, quantity, description };
 
 
-        fetch('http://localhost:5000/addAToy', {
+        fetch('https://toy-marketplace-a11-server.vercel.app/addAToy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
