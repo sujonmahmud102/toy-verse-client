@@ -10,17 +10,16 @@ const photos = [g1, g2, g3, g4, g5, g6];
 
 const PhotoGallery = () => {
     return (
-        <div className='mb-10 px-16 bg-[#fb6b47]'>
-            <h1 className='text-white text-7xl font-semibold text-center p-8 '>
-                Photo Gallery
-            </h1>
-            <div className='grid md:grid-cols-3 gap-8 mx-auto p-10'>
+        <div className='mb-5 md:mb-10 px-4 md:px-16 bg-[#fb6b47]'>
+
+            <h1 className='text-white text-3xl lg:text-7xl font-semibold text-center p-4 md:p-8 '> Photo Gallery</h1>
+
+            <div className='grid md:grid-cols-3 gap-4 md:gap-8  p-4 md:p-10'>
                 {
                     photos.map((photo, i) => <div key={i}>
-                        <img data-aos="flip-left"
-     data-aos-easing="ease-out-cubic"
-     data-aos-duration="1000"
-                         className='w-3/4 rounded-lg hover:brightness-50 transition duration-700' src={photo} alt="" />
+                        <img
+                            data-aos="flip-left"
+                            className='w-3/4 rounded-lg hover:brightness-50 transition duration-700 mx-auto' src={photo} alt="" />
                     </div>)
                 }
             </div>

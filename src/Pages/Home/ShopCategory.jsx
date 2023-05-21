@@ -31,10 +31,10 @@ const ShopCategory = () => {
     }, [])
 
     return (
-        <div className='px-16 text-center'>
+        <div className='px-4 md:px-16 text-center'>
             <Tabs forceRenderTabPanel defaultIndex={1}>
                 <TabList>
-                    <Tab><h3 className='text-3xl font-semibold bg-pink-100 rounded-lg p-4'>Shop By Category</h3></Tab>
+                    <Tab><h3 className='text-lg md:text-3xl font-semibold bg-gray-100 rounded-lg p-2 md:p-4'>Shop By Category</h3></Tab>
                 </TabList>
                 <TabPanel>
                     <Tabs forceRenderTabPanel>
@@ -48,7 +48,9 @@ const ShopCategory = () => {
                             <div className='grid md:grid-cols-3 my-4 gap-5'>
                                 {
                                     vehiclesCategory.map((item, i) => <div key={i}>
-                                        <div data-aos="zoom-in" className="card w-96 h-[450px] bg-base-100 border border-pink-100 shadow-xl">
+                                        <div
+                                            data-aos="zoom-in"
+                                            className="mx-auto card w-80 md:w-96 h-[400px] md:h-[450px] bg-base-100 border border-pink-100 shadow-xl">
                                             <img src={item.photo} alt="" className="rounded-lg w-[230px] h-[200px] pt-8 mx-auto" />
                                             <div className="card-body items-center text-center">
                                                 <h2 className="card-title">{item.toyName}</h2>
@@ -56,7 +58,7 @@ const ShopCategory = () => {
                                                 <p>Ratings: {item.rating} </p>
                                                 <div className="card-actions">
                                                     <Link to={`/toy/${item._id}`}>
-                                                        <button onClick={handleCheckUser} className="btn btn-secondary">View Details</button>
+                                                        <button onClick={handleCheckUser} className="md:btn md:btn-secondary btn-secondary py-1 px-2 rounded-md">View Details</button>
                                                     </Link>
                                                 </div>
                                             </div>
@@ -65,12 +67,14 @@ const ShopCategory = () => {
                                 }
                             </div>
                         </TabPanel>
-                        {/* tab2 category */}
+                        {/* tab2 category  */}
                         <TabPanel>
                             <div className='grid md:grid-cols-3 my-4 gap-5'>
                                 {
                                     carsCategory.map((item, i) => <div key={i}>
-                                        <div data-aos="zoom-out-down" className="card w-96 h-[450px] bg-base-100 border border-pink-100 shadow-xl">
+                                        <div
+                                            data-aos="zoom-in"
+                                            className="mx-auto card w-80 md:w-96 h-[400px] md:h-[450px] bg-base-100 border border-pink-100 shadow-xl">
                                             <img src={item.photo} alt="" className="rounded-lg w-[230px] h-[200px] pt-8 mx-auto" />
                                             <div className="card-body items-center text-center">
                                                 <h2 className="card-title">{item.toyName}</h2>
@@ -78,9 +82,8 @@ const ShopCategory = () => {
                                                 <p>Ratings: {item.rating} </p>
                                                 <div className="card-actions">
                                                     <Link to={`/toy/${item._id}`}>
-                                                        <button onClick={handleCheckUser} className="btn btn-secondary">View Details</button>
+                                                        <button onClick={handleCheckUser} className="md:btn md:btn-secondary btn-secondary py-1 px-2 rounded-md">View Details</button>
                                                     </Link>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -88,12 +91,14 @@ const ShopCategory = () => {
                                 }
                             </div>
                         </TabPanel>
-                        {/* tab3 category */}
+                        {/* tab3 category  */}
                         <TabPanel>
                             <div className='grid md:grid-cols-3 my-4 gap-5'>
                                 {
                                     trucksCategory.map((item, i) => <div key={i}>
-                                        <div data-aos="zoom-in" className="card w-96 h-[450px] bg-base-100 border border-pink-100 shadow-xl">
+                                        <div
+                                            data-aos="zoom-in"
+                                            className="mx-auto card w-80 md:w-96 h-[400px] md:h-[450px] bg-base-100 border border-pink-100 shadow-xl">
                                             <img src={item.photo} alt="" className="rounded-lg w-[230px] h-[200px] pt-8 mx-auto" />
                                             <div className="card-body items-center text-center">
                                                 <h2 className="card-title">{item.toyName}</h2>
@@ -101,9 +106,8 @@ const ShopCategory = () => {
                                                 <p>Ratings: {item.rating} </p>
                                                 <div className="card-actions">
                                                     <Link to={`/toy/${item._id}`}>
-                                                        <button onClick={handleCheckUser} className="btn btn-secondary">View Details</button>
+                                                        <button onClick={handleCheckUser} className="md:btn md:btn-secondary btn-secondary py-1 px-2 rounded-md">View Details</button>
                                                     </Link>
-
                                                 </div>
                                             </div>
                                         </div>

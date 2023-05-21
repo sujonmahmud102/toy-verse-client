@@ -7,10 +7,12 @@ import { Pagination } from "swiper";
 
 const PopularToys = () => {
     return (
-        <div className="px-16 my-10">
-            <h1 className="text-center text-5xl font-semibold my-3">Explore Popular Toys</h1>
-            <Swiper data-aos="fade-up"
-                data-aos-duration="3000"
+        <div className="px-4 md:px-16 my-10">
+
+            <h1 className="text-center text-3xl md:text-5xl font-semibold md:my-3">Explore Popular Toys</h1>
+
+            <Swiper
+                data-aos="flip-up"
                 slidesPerView={1}
                 spaceBetween={10}
                 pagination={{
@@ -34,8 +36,8 @@ const PopularToys = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className="px-12 py-12">
-                        <img className="w-80 h-36 rounded-md " src="https://m.media-amazon.com/images/I/71oAbluK58S._AC_UL600_FMwebp_QL65_.jpg" alt="" />
+                    <div className="px-12 py-8">
+                        <img className="w-72 md:w-80 h-36 rounded-md " src="https://m.media-amazon.com/images/I/71oAbluK58S._AC_UL600_FMwebp_QL65_.jpg" alt="" />
                         <h3 className="text-center ">Accessories</h3>
                     </div>
                 </SwiperSlide>

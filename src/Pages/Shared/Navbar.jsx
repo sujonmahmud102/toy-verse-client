@@ -64,7 +64,7 @@ const Navbar = () => {
     </>
 
     return (
-        <nav className="navbar bg-base-100 px-16">
+        <nav className="navbar bg-base-100 px-4 md:px-16">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -87,10 +87,10 @@ const Navbar = () => {
                         <div className="tooltip tooltip-left" data-tip={user?.displayName}>
                             <img className='rounded-full w-10 h-10 mr-3' src={user?.photoURL} alt="User image" />
                         </div>
-                        <button onClick={handleLogOUt} className='bg-gray-900 text-white p-3 rounded-md sm:btn uppercase'>Logout</button>
+                        <button onClick={handleLogOUt} className='md:btn btn btn-sm'>Logout</button>
                     </> :
                         <Link to='/login'>
-                            <button className='btn btn-secondary'>Login</button>
+                            <button className='md:btn md:btn-secondary btn-secondary py-1 px-2 rounded-md'>Login</button>
                         </Link>
                 }
             </div>
