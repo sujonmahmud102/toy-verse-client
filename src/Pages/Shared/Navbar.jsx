@@ -54,17 +54,11 @@ const Navbar = () => {
             </> :
                 <></>
         }
-        <li>
-            <NavLink
-                to='/register'
-                className={({ isActive }) => isActive ? "font-bold text-secondary" : ""}>
-                Register
-            </NavLink>
-        </li>
+
     </>
 
     return (
-        <nav className="navbar bg-base-100 px-4 md:px-16">
+        <nav className="sticky top-0 z-50 navbar bg-base-100 px-4 md:px-16">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -74,7 +68,7 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <Link className="btn btn-ghost normal-case text-xl" to='/'><img className='h-14' src={logo} alt="" /></Link>
+                <Link className="btn btn-ghost normal-case text-xl" to='/'><img className='h-8 md:h-12' src={logo} alt="" /></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -85,7 +79,7 @@ const Navbar = () => {
                 {
                     user ? <>
                         <div className="tooltip tooltip-left" data-tip={user?.displayName}>
-                            <img className='rounded-full w-10 h-10 mr-3' src={user?.photoURL} alt="User image" />
+                            <img className='rounded-full w-6 h-6 md:w-10 md:h-10 mr-3' src={user?.photoURL} alt="User image" />
                         </div>
                         <button onClick={handleLogOUt} className='md:btn btn btn-sm'>Logout</button>
                     </> :

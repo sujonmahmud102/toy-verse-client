@@ -20,16 +20,16 @@ const AllToys = () => {
 
 
     return (
-        <div className='p-16'>
+        <div className='p-4 lg:p-16'>
             <div className='flex justify-center mb-8'>
-                <div className="relative w-2/5">
+                <div className="relative w-3/4 md:w-2/5">
                     <input onChange={handleSearch} value={searchQuery} type="text" placeholder="Search by toy name" className="input input-bordered input-secondary w-full pl-8" />
                     <div className='absolute top-[14px] left-2 text-2xl text-gray-400'>
                         <AiOutlineSearch></AiOutlineSearch>
                     </div>
                 </div>
             </div>
-            <div className="overflow-x-auto">
+            <div className="w-full overflow-x-auto">
                 <table className="table w-full">
                     {/* head */}
                     <thead>

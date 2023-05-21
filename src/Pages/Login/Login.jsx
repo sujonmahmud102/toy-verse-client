@@ -92,14 +92,14 @@ const Login = () => {
 
     return (
         <section className="hero px-4 py-6 md:py-12 md:px-16">
-            <div className="hero-content w-3/4">
+            <div className="lg:w-3/4 lg:flex items-center  bg-base-100">
                 <div>
                     <img className='w-[500px]' src={img} alt="" />
                 </div>
                 <div className="card md:w-1/2 shadow-2xl">
                     <div className="card-body">
                         <div>
-                            <h1 className="text-4xl font-bold mb-3">Login</h1>
+                            <h1 className="text-2xl lg:text-4xl font-bold mb-3">Login</h1>
                             <p>Don't have an account? <Link className='text-secondary' to='/register'>Register Now</Link></p>
                         </div>
                         {/* form start */}

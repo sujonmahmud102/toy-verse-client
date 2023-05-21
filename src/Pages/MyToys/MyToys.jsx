@@ -4,6 +4,7 @@ import { Authcontext } from '../../AuthProvider/AuthProvider';
 import MyToysTableRow from './MyToysTableRow';
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const MyToys = () => {
     const { user } = useContext(Authcontext);
@@ -47,36 +48,54 @@ const MyToys = () => {
 
 
     return (
-        <div className='px-16 my-10'>
-            <table className="table w-full">
-                {/* head */}
-                <thead>
-                    <tr>
-                        <th>Serial</th>
-                        <th>Seller</th>
-                        <th>Toy Name</th>
-                        <th>Sub Category</th>
-                        <th className='flex gap-2'>Price
-                            <button onClick={() => handleSort('asc')} className={`tooltip text-${clickAsc}`} data-tip="Sort Ascending"><FaArrowDown></FaArrowDown></button>
-                            <button onClick={() => handleSort('desc')} className={`tooltip text-${clickDesc}`} data-tip="Sort Descending"><FaArrowUp></FaArrowUp>
-                            </button>
-                        </th>
-                        <th>Available</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {/* table row  */}
-                    {
-                        myToys.map((toy, index) => <MyToysTableRow
-                            key={index}
-                            toy={toy}
-                            myToys={myToys}
-                            setMyToys={setMyToys}
-                            index={index}>  </MyToysTableRow>)
+        <div className='px-4 lg:px-16 my-5 lg:my-10'>
+            <div className='text-center my-10 text-2xl lg:text-3xl font-thin italic'>
+                {
+                    myToys.length ? <h3>Your Added Toys</h3> :
+                        <h3>
+                            Your My Toys page is empty.
+                            <br />
+                            <br />
+                            You can add a toys on <Link className='text-secondary underline' to='/add-a-toys'>Add A Toys</Link> page.
+                        </h3>
+                }
+
+            </div>
+
+            <div className='w-full overflow-x-auto'>
+                <table className="table w-full">
+                    {/* head */}
+                    {myToys.length !== 0 &&
+                        <thead>
+                            <tr>
+                                <th>Serial</th>
+                                <th>Seller</th>
+                                <th>Toy Name</th>
+                                <th>Sub Category</th>
+                                <th className='flex gap-2'>Price
+                                    <button onClick={() => handleSort('asc')} className={`tooltip text-${clickAsc}`} data-tip="Sort Ascending"><FaArrowDown></FaArrowDown></button>
+                                    <button onClick={() => handleSort('desc')} className={`tooltip text-${clickDesc}`} data-tip="Sort Descending"><FaArrowUp></FaArrowUp>
+                                    </button>
+                                </th>
+                                <th>Available</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
                     }
-                </tbody>
-            </table>
+                    <tbody>
+                        {/* table row  */}
+                        {
+                            myToys.map((toy, index) => <MyToysTableRow
+                                key={index}
+                                toy={toy}
+                                myToys={myToys}
+                                setMyToys={setMyToys}
+                                index={index}>  </MyToysTableRow>)
+                        }
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     );
 };

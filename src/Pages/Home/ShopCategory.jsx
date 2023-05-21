@@ -31,10 +31,10 @@ const ShopCategory = () => {
     }, [])
 
     return (
-        <div className='px-4 md:px-16 text-center'>
+        <div className='px-4 py-8 md:px-16 text-center bg-[#acb0c0]'>
             <Tabs forceRenderTabPanel defaultIndex={1}>
                 <TabList>
-                    <Tab><h3 className='text-lg md:text-3xl font-semibold bg-gray-100 rounded-lg p-2 md:p-4'>Shop By Category</h3></Tab>
+                    <Tab><h3 className='text-3xl md:text-6xl font-semibold rounded-lg p-2 md:p-4'>Shop By Category</h3></Tab>
                 </TabList>
                 <TabPanel>
                     <Tabs forceRenderTabPanel>

@@ -5,7 +5,7 @@ const Blog = () => {
     useTitle('Blog')
 
     return (
-        <div className='m-6 lg:m-16'>
+        <div className='p-6 lg:p-16 bg-base-300'>
             <div>
                 {/* question 1*/}
                 <h3 className='text-xl font-semibold mb-2 text-justify'>

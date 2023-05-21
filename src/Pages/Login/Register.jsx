@@ -103,15 +103,15 @@ const Register = () => {
     return (
         <section className='px-4 py-6 md:py-12 md:px-16'>
             <div className="hero mt-5">
-                <div className="w-3/4 flex items-center  bg-base-100">
+                <div className="lg:w-3/4 lg:flex items-center  bg-base-100">
                     <div>
                         <img className='w-[600px]' src={img} alt="" />
                     </div>
-                    <div className="md:w-1/2 shadow-2xl">
+                    <div className="w-full md:w-1/2 shadow-2xl">
                         <div>
                             <div className="card-body border-solid border-2 rounded-lg">
                                 <div>
-                                    <h1 className="text-4xl font-bold mb-3">Register</h1>
+                                    <h1 className="text-2xl lg:text-4xl font-bold mb-3">Register</h1>
                                     <p>Already have an account?  <Link className='text-secondary' to='/login'>Login</Link></p>
                                 </div>
                                 {/* form start */}

@@ -51,12 +51,12 @@ const AddAToys = () => {
     }
 
     return (
-        <div className="m-24 bg-[#edeaed] rounded-lg p-8">
+        <div className="m-4 lg:m-24 bg-[#edeaed] rounded-lg p-8">
             <h3 className='text-3xl font-bold text-center mb-4'>Add New Toy</h3>
             <form onSubmit={handleAddToy}>
                 {/* form first row */}
-                <div className="flex justify-between gap-4">
-                    <div className="form-control  w-1/2">
+                <div className="lg:flex justify-between gap-4">
+                    <div className="form-control  lg:w-1/2">
                         <label className="label">
                             <span className="label-text">Toy Picture</span>
                         </label>
@@ -64,7 +64,7 @@ const AddAToys = () => {
                             <input type="text" name="photo" placeholder="Enter toy picture URL" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    <div className="form-control  w-1/2">
+                    <div className="form-control  lg:w-1/2">
                         <label className="label">
                             <span className="label-text">Toy Name</span>
                         </label>
@@ -75,8 +75,8 @@ const AddAToys = () => {
                 </div>
                 {/* form second row */}
                 <div>
-                    <div className="flex justify-between gap-4">
-                        <div className="form-control  w-1/2">
+                    <div className="lg:flex justify-between gap-4">
+                        <div className="form-control  lg:w-1/2">
                             <label className="label">
                                 <span className="label-text">Seller Name</span>
                             </label>
@@ -84,7 +84,7 @@ const AddAToys = () => {
                                 <input type="text" name="sellerName" defaultValue={user?.displayName} placeholder="Enter seller name" className="input input-bordered w-full" />
                             </label>
                         </div>
-                        <div className="form-control  w-1/2">
+                        <div className="form-control  lg:w-1/2">
                             <label className="label">
                                 <span className="label-text">Seller Email</span>
                             </label>
@@ -96,8 +96,8 @@ const AddAToys = () => {
                 </div>
                 {/* form third row */}
                 <div>
-                    <div className="flex justify-between gap-4">
-                        <div className="form-control  w-1/2">
+                    <div className="lg:flex justify-between gap-4">
+                        <div className="form-control  lg:w-1/2">
                             <label className="label">
                                 <span className="label-text">Sub Category</span>
                             </label>
@@ -109,7 +109,7 @@ const AddAToys = () => {
                                 </select>
                             </label>
                         </div>
-                        <div className="form-control  w-1/2">
+                        <div className="form-control  lg:w-1/2">
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
@@ -121,8 +121,8 @@ const AddAToys = () => {
                 </div>
                 {/* form fouth row */}
                 <div>
-                    <div className="flex justify-between gap-4">
-                        <div className="form-control  w-1/2">
+                    <div className="lg:flex justify-between gap-4">
+                        <div className="form-control  lg:w-1/2">
                             <label className="label">
                                 <span className="label-text">Rating</span>
                             </label>
@@ -130,12 +130,12 @@ const AddAToys = () => {
                                 <input type="text" name="rating" placeholder="Enter rating" className="input input-bordered w-full" />
                             </label>
                         </div>
-                        <div className="form-control  w-1/2">
+                        <div className="form-control  lg:w-1/2">
                             <label className="label">
                                 <span className="label-text">Available Quantity</span>
                             </label>
                             <label className="input-group input-group-vertical">
-                                <input type="number" name="quantity" placeholder="Enter toy avaialable quantity" className="input input-bordered" />
+                                <input type="number" name="quantity" placeholder="Enter toy available quantity" className="input input-bordered" />
                             </label>
                         </div>
                     </div>
